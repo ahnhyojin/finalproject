@@ -79,7 +79,7 @@
       {% if user.is_authenticated %}  
      
       <li><a href="{% url 'new' %}"><strong>글쓰기</strong> </a></li>
-      <li><a href="{% url 'login' %}"><strong>관련 사이트</strong></a></li> 
+     
       <li><a href="{% url 'introduce' %}"><strong>사이트 소개</strong></a></li>
       <li>
           <form id = 'logout' method="POST" action="{% url 'logout' %}">
@@ -91,7 +91,8 @@
       
       {% else %}
       <li><a href="{% url 'login' %}"><strong>로그인</strong></a></li>
-      <li><a href="{% url 'signup' %}"><strong>가입하기</strong></a></li> 
+      <li><a href="{% url 'signup' %}"><strong>가입하기</strong></a></li>
+      <li><a href="{% url 'introduce' %}"><strong>사이트 소개</strong></a></li> 
       {% endif %}
 
   </div>
