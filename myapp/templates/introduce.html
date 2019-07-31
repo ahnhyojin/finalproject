@@ -1,0 +1,21 @@
+{% extends 'base.html' %}   <!-- 우선순위 가장 위! 가장 먼저 써주기-->
+{% block contents %}
+{% load staticfiles %}
+<style>
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+</style>
+<body>
+<div class = 'container'>
+    <h2>사이트 소개 </h2>
+    <p1>현직자의 조언과 경험담을 통해 해당 진로에 관심이 있는 사람들이 도움을 얻을 수 있는 서비스를 제공하는 사이트입니다.
+        이곳에 글을 쓰는 사람은 자신의 일상과 이 직업에 대한 생각와 느낀점을 기록으로 남길 수 있습니다
+
+    </p1>
+</div>
+
+</body>
+
+{% endblock %}

@@ -1,15 +1,28 @@
 {% extends 'base.html' %}   <!-- 우선순위 가장 위! 가장 먼저 써주기-->
 {% block contents %}
-
-
-<from action="">
-    제목:
-     <textarea cols = "50" rows = "1" name = "title"></textarea>
-     <br>
-    <textarea cols = "50" rows = "10" name = "fulltext"></textarea>
+<style>
+.container{
+    width: 780px;
+    margin: 0 auto;
+}
+</style>
+<br><br><br><br>
+<body>
+<div class= 'container'>
+<form action="{% url 'editSend' postupdate.id %}" method = "POST"  enctype = "multipart/form-data"><!--views.py 에 edit함수에 키값을 .id 앞에 써저야함 -->
+    {% csrf_token %}
+   
+	<input type="text" value={{postupdate.title}} name="updatetitle" placeholder = "제목" style="width:700px;" > 
+    <br><br>
+    <textarea cols = "100" rows = "20" name = "updatefulltext">{{postupdate.body}}</textarea>
     <br>
-    <input type = "submit" value = "제출하기">
+    
+    <input class="edit_image" type="file" value= {{postupdate.image.url}} name="image" >
+    <br>
+    <br>
+    <section class="text-right"><input class="btn btn-light" type = "submit" value = "수정하기"></section>
+</form>
+</div>
 
-</from>
 
 {% endblock %}

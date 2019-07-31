@@ -1,15 +1,42 @@
 {% extends 'base.html' %}   <!-- 우선순위 가장 위! 가장 먼저 써주기-->
 {% block contents %}
 
+<style>
 
+
+.container{
+     width: 960px;
+     margin: 0 auto;
+}
+
+.contents{
+     background-color:white;
+     text-align: center;
+     padding: 20px;
+}
+
+</style>
+<br><br><br>
+ <body>
 <div class="container">
-    <h1>{{post.title}}</h1>
-    <p>{{post.pub_date}}</p>
-    <p>{{post.body}}</p>
+    <div class = mr-md-3 sytle = "margin-right: 20rem;">
+    <h2>{{posts.title}}</h2>
+   
+     <section class="text-right"> <p>{{posts.pub_date}}<br>글쓴이: {{posts.author}}</p></section>
+    <div class = "contents">
+     <img src = "{{posts.image.url}}" height = 300 ><br><br>
+    <p>{{posts.body}}</p></div>
+     {% if posts.author == user %}  
+   <section class="text-right"><a href="{% url 'edit' posts.id %}"><input class="btn btn-light" type = "submit" value = "수정하기"></a>
+    &nbsp;<a href="{% url 'index' %}"><button type="button" class="btn btn-info">홈으로</button></a></section>
+   {% endif %} 
+  <section class="text-right"><a href="{% url 'index' %}"><button type="button" class="btn btn-info">홈으로</button></a></section>
 
 
+   <br><br>
 </div>
-
+</div>
+</body>
 
 
 

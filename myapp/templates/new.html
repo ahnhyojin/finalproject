@@ -1,0 +1,29 @@
+{% extends 'base.html' %}   <!-- 우선순위 가장 위! 가장 먼저 써주기-->
+{% block contents %}
+{% load staticfiles %}
+<br><br><br>
+
+<style>
+  .container{
+      width: 760px;
+      margin: 0 auto;
+  }
+  </style>
+  
+
+<div class= 'container'>
+<form action="{% url 'create' %}" method = "POST"  enctype = "multipart/form-data">
+  {% csrf_token %}
+
+	<input type="text" name="title" placeholder="제목"  style="width:700px; height: 35px;" >
+    <br><br>
+    <textarea cols = "94" rows = "20" name = "fulltext"placeholder="내용"  ></textarea>
+    <br>
+    <input class="upload_image" type="file" name="image">
+    <br><br>
+    <section class="text-right"> <input class="btn btn-light" type = "submit" value = "글쓰기"></section>
+
+</form>
+</div>
+
+{% endblock %}

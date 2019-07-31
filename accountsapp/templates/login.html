@@ -1,0 +1,45 @@
+{% extends 'base.html' %}   
+{% block contents %}
+{% load staticfiles %}
+<br><br><br><br>
+<style>
+.card{
+    left:0; right:0; margin-left:auto; margin-right:auto; 
+    top: 0; bottom:0; margin-top:auto; margin-bottom:auto; 
+    
+}
+.h3{
+    display:flex;
+    text-align:center;margin:0 auto
+}
+
+
+</style>
+<br>
+<body>
+<div class = 'card' style="width: 35rem;">
+<div class = 'card-body'>
+    <section class="text-center">
+    <h3>로그인</h3>
+    
+    <br>
+    <form method = "POST" action = "{% url 'login' %}">
+        {% csrf_token %}
+        <input name = 'username' type = 'text' value = "" placeholder="아이디" style="width:350px; height: 45px;" >
+        <br><br>
+        <input name = 'password' type = 'password' value = "" placeholder="비밀번호" style="width:350px; height: 45px;">
+        <br><br>
+        {% if error %}
+        {{error}}
+        {% endif %}
+        <br>
+        <section class="text-center"><input class="btn btn-light" type = "submit" value = "로그인"></section>
+    </form></section>
+</body>    
+
+</div>
+</div>
+
+
+
+{% endblock %}

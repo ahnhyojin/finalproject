@@ -1,0 +1,44 @@
+{% extends 'base.html' %}   
+{% block contents %}
+<br><br><br><br>
+<style>
+.card{
+    left:0; right:0; margin-left:auto; margin-right:auto; 
+    top: 0; bottom:0; margin-top:auto; margin-bottom:auto; 
+    
+}
+
+</style>
+<br>
+<div class = 'card' style="width: 45rem;">
+<div class = 'card-body'>
+    <section class="text-center"><h3 >계정 만들기</h3>
+    <form method = "POST" action = "{% url 'signup' %}">
+    <br>
+        {% csrf_token %}  <!--POST 방식을 쓸때, 보안위해 써주는 것이 좋다-->
+     
+        <input name = 'username' type = 'text' value = "" placeholder="아이디" style="width:400px; height: 40px;" >
+        <br><br>
+        <input name = 'password1' type = 'password' value = ""  placeholder="비밀번호" style="width:400px; height: 40px;">
+        <br><br>
+        <input name = 'password2' type = 'password' value = "" placeholder="비밀번호 확인"  style="width:400px; height: 40px;">
+        {% if error %}
+        <br><br>
+        {{error}}
+        <br><br></section>
+        <section class="text-center">
+        <input class="btn btn-yellow" type = "submit" value = "만들기">
+        </section>
+        {% else %}
+        <br><br>
+        <section class="text-center">
+        <input class="btn btn-light" type = "submit" value = "만들기">
+        </section>
+        {% endif%}
+        
+    </form>
+  </div>
+</div>
+</div>
+
+{% endblock %}
