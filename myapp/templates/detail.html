@@ -29,9 +29,9 @@
      {% if posts.author == user %}  
    <section class="text-right"><a href="{% url 'edit' posts.id %}"><input class="btn btn-light" type = "submit" value = "수정하기"></a>
     &nbsp;<a href="{% url 'index' %}"><button type="button" class="btn btn-info">홈으로</button></a></section>
-   {% endif %} 
+   {% else %}
   <section class="text-right"><a href="{% url 'index' %}"><button type="button" class="btn btn-info">홈으로</button></a></section>
-
+{% endif %} 
 
    <br><br>
 </div>
